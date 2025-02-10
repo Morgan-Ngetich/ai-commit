@@ -3,6 +3,8 @@ name: Rust
 on:
   push:
     branches: [ "main" ]
+    tags: 
+      - "v*"  # Runs on version tags like v1.0.0
   pull_request:
     branches: [ "main" ]
 
@@ -50,4 +52,20 @@ jobs:
     # Optionally build in release mode
     - name: Build Release
       run: cargo build --release --verbose
+      working-directory: ./backend
+
+  publish:
+    needs: build  # Run only if the build succeeds
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+
+    - name: Publish to Crates.io
+      env:
+        CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+      run: cargo publish --verbose
       working-directory: ./backend
