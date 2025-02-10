@@ -1,0 +1,24 @@
+[package]
+name = "ai-commit"
+version = "1.0.0"
+edition = "2021"
+description = "AI-generated commit messages for Git"
+license = "MIT"
+repository = "https://github.com/morganngetich/ai-commit"
+readme = "README.md"
+keywords = ["git", "commit", "AI", "automation"]
+categories = ["command-line-utilities"]
+authors = ["Morgan Ngetich <your-email@example.com>"]
+
+[[bin]]
+name = "ai-commit"
+path = "src/main.rs"
+
+[dependencies]
+colored = "2.0"
+indicatif = "0.17"
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+serde_json = "1.0"
+candle-core = "0.2"
+rust-bert = "0.20"  # (For Hugging Face models)
+dotenvy = "0.15"

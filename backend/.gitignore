@@ -1,0 +1,25 @@
+# Rust-specific ignores
+target/
+Cargo.lock
+
+# VS Code settings
+.vscode/
+
+# Build artifacts
+*.rlib
+*.rmeta
+
+# Dependencies
+node_modules/
+
+# Logs and temporary files
+*.log
+*.tmp
+.DS_Store
+
+# Rust toolchain files
+.rustup/
+.cargo/
+
+# Generated documentation
+target/doc/
