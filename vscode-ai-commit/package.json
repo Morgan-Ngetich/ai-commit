@@ -1,0 +1,47 @@
+{
+  "name": "ai-commit",
+  "displayName": "AI Commit",
+  "description": "An AI-powered commit message generator for Git, integrating Rust and VS Code.",
+  "icon": "assets/ai_image.jpg",
+  "version": "1.0.0",
+  "publisher": "morganngetich",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+   "SCM Providers"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "aiCommit.generate",
+        "title": "Generate AI Commit Message",
+        "category": "Git"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onCommand:aiCommit.generate"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "build": "tsc",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.75",
+    "@types/vscode": "^1.70.0",
+    "typescript": "^4.9.0",
+    "vsce": "^2.14.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morganngetich/ai-commit-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/morganngetich/ai-commit-vscode/issues"
+  },
+  "homepage": "https://github.com/morganngetich/ai-commit-vscode#readme",
+  "license": "MIT"
+}
