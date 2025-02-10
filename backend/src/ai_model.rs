@@ -1,9 +1,9 @@
 use reqwest::blocking::Client;
 use serde_json::json;
-use std::fs;
-use std::process::Command;
 use std::env;
 use std::error::Error;
+use std::fs;
+use std::process::Command;
 
 /// Gets the full path to the AI commit config file
 fn get_config_path() -> String {
@@ -92,34 +92,33 @@ fn openai_commit_message(
 
 // Uses Ollama (Mistral 7B) to generate commit messages offline
 fn ollama_commit_message(changed_files: &str, file_diffs: &str) -> Result<String, Box<dyn Error>> {
-  let prompt = format!(
+    let prompt = format!(
       "Generate a concise Git commit message based on these changed files:\n{}\nAnd their changes:\n{}",
       changed_files, file_diffs
   );
 
-  if Command::new("which")
-      .arg("ollama")
-      .output()
-      .map(|o| o.status.success())
-      .unwrap_or(false)
-  {
-      let output = Command::new("ollama")
-          .args(["run", "mistral", &prompt])
-          .output()?;
+    if Command::new("which")
+        .arg("ollama")
+        .output()
+        .map(|o| o.status.success())
+        .unwrap_or(false)
+    {
+        let output = Command::new("ollama")
+            .args(["run", "mistral", &prompt])
+            .output()?;
 
-      let response = String::from_utf8_lossy(&output.stdout).trim().to_string();
-      if response.is_empty() {
-          Err("❌ Ollama failed to generate a commit message".into())
-      } else {
-          Ok(response)
-      }
-  } else {
-      println!("🧠 Installing Ollama for offline AI processing...");
-      Command::new("sh")
-          .arg("-c")
-          .arg("curl -fsSL https://ollama.com/install.sh | sh")
-          .status()?;
-      Err("Ollama was not installed. Please try running the command again.".into())
-  }
+        let response = String::from_utf8_lossy(&output.stdout).trim().to_string();
+        if response.is_empty() {
+            Err("❌ Ollama failed to generate a commit message".into())
+        } else {
+            Ok(response)
+        }
+    } else {
+        println!("🧠 Installing Ollama for offline AI processing...");
+        Command::new("sh")
+            .arg("-c")
+            .arg("curl -fsSL https://ollama.com/install.sh | sh")
+            .status()?;
+        Err("Ollama was not installed. Please try running the command again.".into())
+    }
 }
-
