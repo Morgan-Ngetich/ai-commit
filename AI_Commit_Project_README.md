@@ -28,25 +28,10 @@ AI Commit utilizes the following AI models to generate commit messages:
 
 - **Mistral 7B**: An offline AI model used for generating commit messages. If you select the "mistral" model, the script will download and use Mistral 7B for offline generation:
 
-    ```bash
-    echo "🔽 Downloading Mistral 7B model..."
-    ollama pull mistral
-    ```
-
 - **LLaMA 2**: Another offline model option. If you select the "llama2" model, it will download and use the LLaMA 2 model:
-
-    ```bash
-    echo "🔽 Downloading LLaMA 2 model..."
-    ollama pull llama2
-    ```
 
 - **OpenAI**: When offline models are unavailable or you prefer using OpenAI's API, the tool will prompt you for your OpenAI API key:
 
-    ```bash
-    echo "🌐 Using OpenAI API for commit message generation. Ensure you set your API key."
-    read -p "Enter your OpenAI API key: " OPENAI_KEY
-    echo "OPENAI_API_KEY=$OPENAI_KEY" > ~/.ai_commit_config
-    ```
 
 ## How to Clone the Project (Optional)
 
