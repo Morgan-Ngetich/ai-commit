@@ -1,5 +1,5 @@
 [package]
-name = "ai-commit"
+name = "ai-commit-gen"
 version = "1.0.0"
 edition = "2021"
 description = "AI-generated commit messages for Git"
