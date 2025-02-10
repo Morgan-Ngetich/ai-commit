@@ -37,11 +37,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/morganngetich/ai-commit-vscode.git"
+    "url": "https://github.com/Morgan-Ngetich/ai-commit"
   },
   "bugs": {
-    "url": "https://github.com/morganngetich/ai-commit-vscode/issues"
+    "url": "https://github.com/Morgan-Ngetich/ai-commit/issues"
   },
-  "homepage": "https://github.com/morganngetich/ai-commit-vscode#readme",
+  "homepage": "https://github.com/Morgan-Ngetich/ai-commit#readme",
   "license": "MIT"
 }

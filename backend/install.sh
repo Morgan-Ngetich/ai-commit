@@ -42,7 +42,7 @@ INSTALL_DIR="$HOME/.local/bin"
 mkdir -p "$INSTALL_DIR"
 
 echo "🔽 Cloning AI Commit CLI repository..."
-git clone https://github.com/morganngetich/ai-commit-cli.git
+git clone https://github.com/Morgan-Ngetich/ai-commit
 cd ai-commit-cli
 
 echo "🔨 Building Rust project..."
