@@ -43,7 +43,7 @@ mkdir -p "$INSTALL_DIR"
 
 echo "🔽 Cloning AI Commit CLI repository..."
 git clone https://github.com/Morgan-Ngetich/ai-commit
-cd ai-commit-cli
+cd ai-commit-cli/backend
 
 echo "🔨 Building Rust project..."
 cargo build --release
@@ -54,8 +54,10 @@ export PATH="$INSTALL_DIR:$PATH"
 
 # Step 3: Install VS Code Extension
 if command -v code &> /dev/null; then
+    cd ../vscode-ai-commit  # Move to the correct directory
     echo "📦 Installing VS Code extension..."
-    code --install-extension ./vscode-ai-commit
+    code --install-extension .
+    cd ../backend  # Move back to the backend folder
 else
     echo "⚠️ VS Code not found! Skipping extension installation."
 fi
